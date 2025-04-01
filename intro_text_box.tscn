@@ -1,0 +1,41 @@
+[gd_scene load_steps=3 format=3 uid="uid://d33shl26wr3pr"]
+
+[ext_resource type="Script" path="res://intro_text_box.gd" id="1_7q3xq"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_isno5"]
+bg_color = Color(0, 0, 0, 1)
+
+[node name="IntroTextBox" type="CanvasLayer"]
+script = ExtResource("1_7q3xq")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+anchors_preset = -1
+anchor_left = 0.506
+anchor_top = 0.153
+anchor_right = 0.506
+anchor_bottom = 0.153
+offset_left = -415.52
+offset_top = -99.24
+offset_right = 607.48
+offset_bottom = 152.76
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Panel" type="Panel" parent="MarginContainer"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_isno5")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(0, 200)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme_override_font_sizes/font_size = 50
+autowrap_mode = 2
+clip_text = true

@@ -1,0 +1,99 @@
+[gd_scene load_steps=14 format=3 uid="uid://ckklkqpkdc1um"]
+
+[ext_resource type="Script" path="res://missile.gd" id="1_2uxuf"]
+[ext_resource type="Texture2D" uid="uid://bi7g4osjmy0ua" path="res://assets/pixilart-sprite (2).png" id="1_mwgs5"]
+[ext_resource type="Texture2D" uid="uid://c6n2uhe8wn435" path="res://actualImages/explosion_1.png" id="3_hr6aa"]
+[ext_resource type="Texture2D" uid="uid://1l0gh4448e2u" path="res://actualImages/explosion_2.png" id="4_a67p8"]
+[ext_resource type="Texture2D" uid="uid://bpckfhqgmqd8w" path="res://actualImages/explosion_3.png" id="5_g0kyf"]
+[ext_resource type="Texture2D" uid="uid://g6wtq5oo6y05" path="res://actualImages/explosion_4.png" id="6_67mfq"]
+[ext_resource type="Texture2D" uid="uid://clglahpsbmu4k" path="res://actualImages/explosion_5.png" id="7_v2sng"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ybo7k"]
+atlas = ExtResource("1_mwgs5")
+region = Rect2(0, 0, 200, 200)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7bt11"]
+atlas = ExtResource("1_mwgs5")
+region = Rect2(200, 0, 200, 200)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_24rfx"]
+atlas = ExtResource("1_mwgs5")
+region = Rect2(400, 0, 200, 200)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b6ryf"]
+atlas = ExtResource("1_mwgs5")
+region = Rect2(600, 0, 200, 200)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lagvy"]
+atlas = ExtResource("1_mwgs5")
+region = Rect2(800, 0, 200, 200)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_7furd"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ybo7k")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7bt11")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_24rfx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b6ryf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lagvy")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_hr6aa")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_a67p8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_g0kyf")
+}, {
+"duration": 2.0,
+"texture": ExtResource("6_67mfq")
+}, {
+"duration": 2.0,
+"texture": ExtResource("7_v2sng")
+}, {
+"duration": 2.0,
+"texture": ExtResource("6_67mfq")
+}, {
+"duration": 2.0,
+"texture": ExtResource("7_v2sng")
+}],
+"loop": true,
+"name": &"explode",
+"speed": 5.0
+}]
+
+[node name="Missile" type="Node2D"]
+z_index = 2
+scale = Vector2(2.14, 2.14)
+script = ExtResource("1_2uxuf")
+
+[node name="Anim" type="AnimatedSprite2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(14.486, -7.94392)
+rotation = 1.5708
+scale = Vector2(1.06507, 1.27389)
+sprite_frames = SubResource("SpriteFrames_7furd")
+animation = &"explode"
+frame_progress = 0.656887
+speed_scale = 3.0
+
+[node name="deathTimer" type="Timer" parent="."]
+wait_time = 0.7
+one_shot = true
+
+[connection signal="timeout" from="deathTimer" to="." method="_on_death_timer_timeout"]

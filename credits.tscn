@@ -1,0 +1,61 @@
+[gd_scene load_steps=5 format=3 uid="uid://bbbltcf76sb7a"]
+
+[ext_resource type="Texture2D" uid="uid://dtb4grcj1puit" path="res://icon.svg" id="1_25hma"]
+[ext_resource type="Script" path="res://credits.gd" id="1_owitg"]
+[ext_resource type="FontFile" uid="uid://ce5cdq13xtfrh" path="res://actualImages/dogicapixelbold.otf" id="3_y4sp3"]
+[ext_resource type="Texture2D" uid="uid://c5ymjhkcweilw" path="res://actualImages/not-dead-yet.png" id="4_qqf3x"]
+
+[node name="Credits" type="Node2D"]
+script = ExtResource("1_owitg")
+
+[node name="BlackBG2" type="Sprite2D" parent="."]
+self_modulate = Color(0.585062, 0.585062, 0.585062, 1)
+z_index = -20
+position = Vector2(995, 514.5)
+scale = Vector2(150.143, 102.917)
+texture = ExtResource("1_25hma")
+region_enabled = true
+region_rect = Rect2(19.306, 16.3647, 14.6441, 12.356)
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+offset_left = 610.0
+offset_top = 94.0
+offset_right = 1480.0
+offset_bottom = 318.0
+theme_override_colors/default_color = Color(0.902317, 0.613661, 0.27112, 1)
+theme_override_fonts/normal_font = ExtResource("3_y4sp3")
+theme_override_font_sizes/normal_font_size = 120
+text = "Credits"
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="."]
+offset_left = 797.0
+offset_top = 403.0
+offset_right = 1667.0
+offset_bottom = 787.0
+theme_override_colors/default_color = Color(0.992574, 0.845563, 0.849175, 1)
+theme_override_constants/line_separation = 10
+theme_override_fonts/normal_font = ExtResource("3_y4sp3")
+theme_override_font_sizes/normal_font_size = 40
+text = "Code: Abish and Aadit
+
+Art: Aaron and Abish
+
+Music: Bensound.com
+
+MVP: Godot"
+
+[node name="Not-dead-yet" type="Sprite2D" parent="."]
+position = Vector2(518, 575)
+scale = Vector2(0.463953, 0.463953)
+texture = ExtResource("4_qqf3x")
+
+[node name="ScoreButton" type="Button" parent="."]
+offset_left = 1397.0
+offset_top = 850.0
+offset_right = 1777.0
+offset_bottom = 981.0
+theme_override_fonts/font = ExtResource("3_y4sp3")
+theme_override_font_sizes/font_size = 40
+text = "BACK"
+
+[connection signal="pressed" from="ScoreButton" to="." method="_on_score_button_pressed"]

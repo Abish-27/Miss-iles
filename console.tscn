@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=3 uid="uid://c6o7a2rnidocp"]
+
+[ext_resource type="Texture2D" uid="uid://cbam1f200j44f" path="res://assets/Untitled_Artwork 4.png" id="1_dkt10"]
+[ext_resource type="Texture2D" uid="uid://2an47kt6apjl" path="res://actualImages/ConsoleFrame.png" id="2_0j023"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_0oanu"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_dkt10")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_0j023")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Console" type="AnimatedSprite2D"]
+sprite_frames = SubResource("SpriteFrames_0oanu")
+frame_progress = 0.597912
+speed_scale = 1.7

@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://damyw87osjtuh"]
+
+[ext_resource type="AudioStream" uid="uid://c2hyyjwo3lx1d" path="res://assets/vanishinghope.mp3" id="1_n8l63"]
+
+[node name="BgMusic" type="AudioStreamPlayer2D"]
+stream = ExtResource("1_n8l63")
+autoplay = true

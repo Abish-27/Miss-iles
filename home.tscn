@@ -1,0 +1,142 @@
+[gd_scene load_steps=6 format=3 uid="uid://uruttw5rgi4k"]
+
+[ext_resource type="Script" path="res://home.gd" id="1_cduel"]
+[ext_resource type="Texture2D" uid="uid://dtb4grcj1puit" path="res://icon.svg" id="2_8abrx"]
+[ext_resource type="FontFile" uid="uid://ce5cdq13xtfrh" path="res://actualImages/dogicapixelbold.otf" id="3_miytr"]
+
+[sub_resource type="Gradient" id="Gradient_nytc5"]
+offsets = PackedFloat32Array(0, 0.685065, 0.691558)
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_6dl48"]
+gradient = SubResource("Gradient_nytc5")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+
+[node name="Home" type="Node2D"]
+modulate = Color(0.697578, 0.697578, 0.697577, 1)
+self_modulate = Color(0.475927, 0.475927, 0.475927, 1)
+script = ExtResource("1_cduel")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+offset_left = 451.0
+offset_top = 85.0
+offset_right = 1807.0
+offset_bottom = 261.0
+theme_override_colors/default_color = Color(0.885607, 0.384066, 0.382329, 1)
+theme_override_fonts/normal_font = ExtResource("3_miytr")
+theme_override_font_sizes/normal_font_size = 120
+text = " Miss-Iles"
+scroll_active = false
+
+[node name="TutorialButton" type="Button" parent="."]
+offset_left = 751.0
+offset_top = 335.0
+offset_right = 1131.0
+offset_bottom = 466.0
+theme_override_fonts/font = ExtResource("3_miytr")
+theme_override_font_sizes/font_size = 40
+text = "Tutorial"
+
+[node name="GameButton" type="Button" parent="."]
+offset_left = 760.0
+offset_top = 526.0
+offset_right = 1140.0
+offset_bottom = 657.0
+theme_override_fonts/font = ExtResource("3_miytr")
+theme_override_font_sizes/font_size = 40
+text = "Play Game"
+
+[node name="ScoreButton" type="Button" parent="."]
+offset_left = 759.0
+offset_top = 725.0
+offset_right = 1139.0
+offset_bottom = 856.0
+theme_override_fonts/font = ExtResource("3_miytr")
+theme_override_font_sizes/font_size = 40
+text = "Credits"
+
+[node name="BlackBG2" type="Sprite2D" parent="."]
+self_modulate = Color(0.585062, 0.585062, 0.585062, 1)
+z_index = -20
+position = Vector2(995, 514.5)
+scale = Vector2(150.143, 102.917)
+texture = ExtResource("2_8abrx")
+region_enabled = true
+region_rect = Rect2(19.306, 16.3647, 14.6441, 12.356)
+
+[node name="CanvasModulate" type="CanvasModulate" parent="."]
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+position = Vector2(959, 602)
+scale = Vector2(15.9687, 13.1445)
+energy = 2.0
+shadow_enabled = true
+texture = SubResource("GradientTexture2D_6dl48")
+
+[node name="PointLight2D2" type="PointLight2D" parent="."]
+position = Vector2(577, 146)
+scale = Vector2(2.95312, 2.84375)
+energy = 2.0
+shadow_enabled = true
+texture = SubResource("GradientTexture2D_6dl48")
+
+[node name="PointLight2D7" type="PointLight2D" parent="."]
+position = Vector2(795, 150)
+scale = Vector2(2.95312, 2.84375)
+energy = 2.0
+shadow_enabled = true
+texture = SubResource("GradientTexture2D_6dl48")
+
+[node name="PointLight2D8" type="PointLight2D" parent="."]
+position = Vector2(680, 145)
+scale = Vector2(2.95312, 2.84375)
+energy = 2.0
+shadow_enabled = true
+texture = SubResource("GradientTexture2D_6dl48")
+
+[node name="PointLight2D9" type="PointLight2D" parent="."]
+position = Vector2(1128, 139)
+scale = Vector2(2.95312, 2.84375)
+energy = 2.0
+shadow_enabled = true
+texture = SubResource("GradientTexture2D_6dl48")
+
+[node name="PointLight2D10" type="PointLight2D" parent="."]
+position = Vector2(1029, 155)
+scale = Vector2(1.54687, 2.1875)
+energy = 2.0
+shadow_enabled = true
+texture = SubResource("GradientTexture2D_6dl48")
+
+[node name="PointLight2D3" type="PointLight2D" parent="."]
+position = Vector2(922.75, 152)
+scale = Vector2(2.67969, 2.84375)
+energy = 2.0
+shadow_enabled = true
+texture = SubResource("GradientTexture2D_6dl48")
+
+[node name="PointLight2D4" type="PointLight2D" parent="."]
+position = Vector2(1307, 154)
+scale = Vector2(2.95312, 2.84375)
+energy = 2.0
+shadow_enabled = true
+texture = SubResource("GradientTexture2D_6dl48")
+
+[node name="PointLight2D5" type="PointLight2D" parent="."]
+position = Vector2(1210, 155)
+scale = Vector2(2.95312, 2.84375)
+energy = 2.0
+shadow_enabled = true
+texture = SubResource("GradientTexture2D_6dl48")
+
+[node name="PointLight2D6" type="PointLight2D" parent="."]
+position = Vector2(1409, 158)
+scale = Vector2(2.95312, 2.84375)
+energy = 2.0
+shadow_enabled = true
+texture = SubResource("GradientTexture2D_6dl48")
+
+[connection signal="pressed" from="TutorialButton" to="." method="_on_tutorial_button_pressed"]
+[connection signal="pressed" from="GameButton" to="." method="_on_game_button_pressed"]
+[connection signal="pressed" from="ScoreButton" to="." method="_on_score_button_pressed"]

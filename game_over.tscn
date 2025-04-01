@@ -1,0 +1,49 @@
+[gd_scene load_steps=5 format=3 uid="uid://dkhr0yottv5dj"]
+
+[ext_resource type="Script" path="res://game_over.gd" id="1_x13wk"]
+[ext_resource type="PackedScene" uid="uid://w7phl8uip11p" path="res://player.tscn" id="2_wsfet"]
+[ext_resource type="FontFile" uid="uid://ce5cdq13xtfrh" path="res://actualImages/dogicapixelbold.otf" id="4_bk2cp"]
+[ext_resource type="Texture2D" uid="uid://dtb4grcj1puit" path="res://icon.svg" id="5_jylv1"]
+
+[node name="GameOver" type="Node2D"]
+script = ExtResource("1_x13wk")
+
+[node name="Player" parent="." instance=ExtResource("2_wsfet")]
+position = Vector2(928, 912)
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+offset_left = 456.0
+offset_top = 128.0
+offset_right = 1624.0
+offset_bottom = 352.0
+theme_override_colors/default_color = Color(0.945169, 0.368274, 0.437091, 1)
+theme_override_fonts/normal_font = ExtResource("4_bk2cp")
+theme_override_font_sizes/normal_font_size = 120
+text = "Game Over"
+
+[node name="zombieSpawner" type="Timer" parent="."]
+unique_name_in_owner = true
+wait_time = 6.0
+
+[node name="BlackBG2" type="Sprite2D" parent="."]
+self_modulate = Color(0.585062, 0.585062, 0.585062, 1)
+z_index = -20
+position = Vector2(995, 514.5)
+scale = Vector2(150.143, 102.917)
+texture = ExtResource("5_jylv1")
+region_enabled = true
+region_rect = Rect2(19.306, 16.3647, 14.6441, 12.356)
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="."]
+offset_left = 368.0
+offset_top = 272.0
+offset_right = 1696.0
+offset_bottom = 408.0
+theme_override_constants/line_separation = 13
+theme_override_fonts/normal_font = ExtResource("4_bk2cp")
+theme_override_font_sizes/normal_font_size = 20
+text = "You failed to liberate the island and the zombies have stormed your base 
+
+                                 Fight till your last breath!!"
+
+[connection signal="timeout" from="zombieSpawner" to="." method="_on_zombie_spawner_timeout"]

@@ -1,0 +1,62 @@
+[gd_scene load_steps=7 format=3 uid="uid://ddeknnsmg6dr"]
+
+[ext_resource type="Texture2D" uid="uid://dtb4grcj1puit" path="res://icon.svg" id="1_c2qer"]
+[ext_resource type="Script" path="res://intro.gd" id="1_e1slh"]
+[ext_resource type="FontFile" uid="uid://djo3h61omkyru" path="res://actualImages/dogicapixel.otf" id="2_ck4n8"]
+[ext_resource type="AudioStream" uid="uid://dpkwq5tkghthv" path="res://actualImages/keyboard-typing-5997.mp3" id="4_5pec5"]
+
+[sub_resource type="Gradient" id="Gradient_kteho"]
+offsets = PackedFloat32Array(0, 0.685065, 0.691558)
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_2mmsf"]
+gradient = SubResource("Gradient_kteho")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+
+[node name="Intro" type="Node2D"]
+script = ExtResource("1_e1slh")
+
+[node name="BlackBG" type="Sprite2D" parent="."]
+self_modulate = Color(0.585062, 0.585062, 0.585062, 1)
+position = Vector2(995, 514.5)
+scale = Vector2(150.143, 102.917)
+texture = ExtResource("1_c2qer")
+region_enabled = true
+region_rect = Rect2(19.306, 16.3647, 14.6441, 12.356)
+
+[node name="IntroText" type="RichTextLabel" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 493.0
+offset_top = 331.0
+offset_right = 1602.0
+offset_bottom = 715.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/default_color = Color(3.36915e-06, 0.766529, 0.263833, 1)
+theme_override_constants/line_separation = 30
+theme_override_fonts/normal_font = ExtResource("2_ck4n8")
+theme_override_font_sizes/normal_font_size = 40
+scroll_active = false
+
+[node name="CanvasModulate" type="CanvasModulate" parent="."]
+color = Color(0.601223, 0.601223, 0.601223, 1)
+
+[node name="PointLight2D" type="PointLight2D" parent="CanvasModulate"]
+position = Vector2(960, 380)
+scale = Vector2(18.6172, 16.3018)
+energy = 2.5
+shadow_enabled = true
+texture = SubResource("GradientTexture2D_2mmsf")
+
+[node name="charTime" type="Timer" parent="."]
+wait_time = 0.05
+
+[node name="TypingSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_5pec5")
+
+[connection signal="timeout" from="charTime" to="." method="_on_char_time_timeout"]
